@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 //  Import FILES
 import 'config/config.dart';
+import 'presentation/providers/state_providers.dart';
 
 //  PARTS
 // part 'main.g.dart';
@@ -24,6 +25,8 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
+    final isDarkMode = ref.watch(darkModeProvider);
+
     return MaterialApp.router(
       title: 'Riverpod Providers',
       debugShowCheckedModeBanner: false,
@@ -32,7 +35,8 @@ class MyApp extends ConsumerWidget {
 
       routerConfig: appRouter,
       // theme: AppTheme(isDarkmode: false).getTheme(),
-      theme: AppTheme(isDarkmode: true).getTheme(),
+      // theme: AppTheme(isDarkmode: true).getTheme(),
+      theme: AppTheme(isDarkmode: isDarkMode).getTheme(),
     );
   }
 }

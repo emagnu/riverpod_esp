@@ -39,5 +39,13 @@ class DarkMode extends _$DarkMode {
 //   state = newUsername;
 // }
 // usernameProvider.notifier).changeName(RandomGeneratot.getRandomName())
+@riverpod
+class UserName extends _$UserName {
+  @override
+  String build() => 'Bibi Fish';
 
+  void changeUsername(String newUsername) {
+    state = newUsername;
+  }
+}
 //  //   ///
