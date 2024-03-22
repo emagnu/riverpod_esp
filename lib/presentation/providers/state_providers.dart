@@ -23,7 +23,8 @@ class Counter extends _$Counter {
 
 // DarkMode -> boolean default = false;
 // void toggleDarkMode()
-@riverpod
+// @riverpod
+@Riverpod(keepAlive: true)
 class DarkMode extends _$DarkMode {
   @override
   bool build() => false;
@@ -39,7 +40,8 @@ class DarkMode extends _$DarkMode {
 //   state = newUsername;
 // }
 // usernameProvider.notifier).changeName(RandomGeneratot.getRandomName())
-@riverpod
+// @riverpod
+@Riverpod(keepAlive: true)
 class UserName extends _$UserName {
   @override
   String build() => 'Bibi Fish';

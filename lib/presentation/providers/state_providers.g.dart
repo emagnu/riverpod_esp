@@ -20,11 +20,11 @@ final counterProvider = AutoDisposeNotifierProvider<Counter, int>.internal(
 );
 
 typedef _$Counter = AutoDisposeNotifier<int>;
-String _$darkModeHash() => r'54d687970391283e693e0beb87bef8e54d34d8da';
+String _$darkModeHash() => r'd19eeed7fa67a08c366852464a46b8efb61b3e9e';
 
 /// See also [DarkMode].
 @ProviderFor(DarkMode)
-final darkModeProvider = AutoDisposeNotifierProvider<DarkMode, bool>.internal(
+final darkModeProvider = NotifierProvider<DarkMode, bool>.internal(
   DarkMode.new,
   name: r'darkModeProvider',
   debugGetCreateSourceHash:
@@ -33,12 +33,12 @@ final darkModeProvider = AutoDisposeNotifierProvider<DarkMode, bool>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$DarkMode = AutoDisposeNotifier<bool>;
-String _$userNameHash() => r'20ea3f973bd3c35a75762096c6961de89c086724';
+typedef _$DarkMode = Notifier<bool>;
+String _$userNameHash() => r'6ca36e8fa949841b2d1749ab0c238900ea4f653c';
 
 /// See also [UserName].
 @ProviderFor(UserName)
-final userNameProvider = AutoDisposeNotifierProvider<UserName, String>.internal(
+final userNameProvider = NotifierProvider<UserName, String>.internal(
   UserName.new,
   name: r'userNameProvider',
   debugGetCreateSourceHash:
@@ -47,6 +47,6 @@ final userNameProvider = AutoDisposeNotifierProvider<UserName, String>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$UserName = AutoDisposeNotifier<String>;
+typedef _$UserName = Notifier<String>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
