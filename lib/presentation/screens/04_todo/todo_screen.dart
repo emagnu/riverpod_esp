@@ -77,7 +77,9 @@ class _TodoView extends ConsumerWidget {
                   title: Text(todo.description),
                   // value: true,
                   value: todo.done,
-                  onChanged: (value) {});
+                  onChanged: (value) {
+                    ref.read(todosProvider.notifier).toggleTodo(todo.id);
+                  });
             },
           ),
         )

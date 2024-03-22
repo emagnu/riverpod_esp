@@ -22,11 +22,11 @@ final todoCurrentFilterProvider =
 );
 
 typedef _$TodoCurrentFilter = AutoDisposeNotifier<FilterType>;
-String _$todosHash() => r'8c8e94c289e9ec4e82bc745e7110ea2f72f16540';
+String _$todosHash() => r'05e89c33e0d5898254f3d6254c9601be46c57ad1';
 
 /// See also [Todos].
 @ProviderFor(Todos)
-final todosProvider = AutoDisposeNotifierProvider<Todos, List<Todo>>.internal(
+final todosProvider = NotifierProvider<Todos, List<Todo>>.internal(
   Todos.new,
   name: r'todosProvider',
   debugGetCreateSourceHash:
@@ -35,6 +35,6 @@ final todosProvider = AutoDisposeNotifierProvider<Todos, List<Todo>>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$Todos = AutoDisposeNotifier<List<Todo>>;
+typedef _$Todos = Notifier<List<Todo>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

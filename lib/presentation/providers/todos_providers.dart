@@ -22,7 +22,8 @@ class TodoCurrentFilter extends _$TodoCurrentFilter {
   }
 }
 
-@riverpod
+// @riverpod
+@Riverpod(keepAlive: true)
 class Todos extends _$Todos {
   @override
   List<Todo> build() => [
@@ -59,6 +60,16 @@ class Todos extends _$Todos {
             description: RandomGenerator.getRandomName(),
             completedAt: null),
       ];
+
+  void toggleTodo(String id) {
+    state = state.map((todo) {
+      if (todo.id == id) {
+        todo.copyWith(completedAt: todo.done ? null : DateTime.now());
+      }
+      return todo;
+    }).toList();
+  }
+
   void createTodo(String description) {
     state = [
       ...state,
