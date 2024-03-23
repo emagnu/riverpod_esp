@@ -37,7 +37,8 @@ class _TodoView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentFilter = ref.watch(todoCurrentFilterProvider);
-    final todos = ref.watch(todosProvider);
+    // final todos = ref.watch(todosProvider);
+    final todos = ref.watch(filteredTodosProvider);
 
     return Column(
       children: [
@@ -73,13 +74,15 @@ class _TodoView extends ConsumerWidget {
             itemBuilder: (context, index) {
               final todo = todos[index];
               return SwitchListTile(
-                  // title: const Text('Juan carlos'),
-                  title: Text(todo.description),
-                  // value: true,
-                  value: todo.done,
-                  onChanged: (value) {
-                    ref.read(todosProvider.notifier).toggleTodo(todo.id);
-                  });
+                // title: const Text('Juan carlos'),
+                title: Text(todo.description),
+                // value: true,
+                value: todo.done,
+                onChanged: (value) {
+                  debugPrint("Inside SwitchListTile.onChanged");
+                  ref.read(todosProvider.notifier).toggleTodo(todo.id);
+                },
+              );
             },
           ),
         )
