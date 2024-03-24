@@ -24,14 +24,32 @@ class FutureProviderScreen extends ConsumerWidget {
       body: Center(
         // child: Text('Manny Emagnu')
         child: pokemonName.when(
-          data: (data) => Text(data),
+          data: (data) => Text(' $data'),
           error: (error, stackTrace) => Text('$error'),
           loading: () => const Center(child: CircularProgressIndicator()),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.refresh),
-        onPressed: () {},
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            heroTag: 'btn-1',
+            child: const Icon(Icons.refresh_outlined),
+            onPressed: () {
+              ref.invalidate(pokemonNameProvider);
+              ref.read(pokemonIdProvider.notifier).nextPokemon();
+            },
+          ),
+          const SizedBox(height: 10.0),
+          FloatingActionButton(
+            heroTag: 'btn-2',
+            child: const Icon(Icons.minimize_outlined),
+            onPressed: () {
+              ref.invalidate(pokemonNameProvider);
+              ref.read(pokemonIdProvider.notifier).previousPokemon();
+            },
+          ),
+        ],
       ),
     );
   }
